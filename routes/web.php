@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function () {
-    $tasks = \App\Task::all();
-    return view('tasks', ['tasks'=>$tasks]);
-});
+Route::get('/tasks', 'TasksController@get');
 
 Route::post('/tasks/submit', 'TasksController@create');
 Route::get('/tasks/delete/{id}', 'TasksController@delete');
 Route::get('/tasks/check/{id}', 'TasksController@check');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();

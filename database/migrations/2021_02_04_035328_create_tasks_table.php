@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->boolean('is_completed')->default('0');
             $table->string('title');
             $table->text('description');
+            $table->unsignedInteger('user_id');
         });
     }
 
